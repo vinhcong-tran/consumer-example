@@ -4,7 +4,7 @@ import {like, eachLike, regex} from "@pact-foundation/pact/src/dsl/matchers";
 import path from 'path'
 
 const url = 'http://localhost:';
-const port = 1236;
+const port = 4321;
 
 describe('Demo test', () => {
     const pact = new Pact({
