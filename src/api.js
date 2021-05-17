@@ -7,7 +7,7 @@ axios.defaults.adapter = adapter;
 export class API {
   constructor(url) {
     if (url === undefined || url === "") {
-      url = process.env.REACT_APP_API_BASE_URL;
+      url = 'http://localhost:8080';
     }
     if (url.endsWith("/")) {
       url = url.substr(0, url.length - 1)
