@@ -18,7 +18,7 @@ I am using [Pactflow](https://pactflow.io/) as my broker. To use Pactflow , regi
 
 ```
 export PACT_BROKER_URL=<PACT_BROKER_URL here>
-export PACT_API_TOKEN=<API_TOKEN here>
+export PACT_BROKER_TOKEN=<API_TOKEN here>
 ```
 
 ### Running test
