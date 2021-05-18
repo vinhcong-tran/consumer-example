@@ -21,7 +21,7 @@ describe('Demo test', () => {
     describe('retrieving products', () => {
         beforeAll(() => {
             // (2) Start the mock server
-            pact.setup().then(async () => {
+            return pact.setup().then(async () => {
                 // this is the response you expect from your Provider
                 const expectedProduct = {id: '10', type: 'CREDIT_CARD', name: '28 Degrees'}
 
