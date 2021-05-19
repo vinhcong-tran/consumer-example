@@ -2,6 +2,10 @@
 
 An example test framework using Pact-js to generate contract from consumer
 
+#### Install dependencies
+
+   `npm i`
+
 ## Running React
 
 1. Start React
@@ -23,17 +27,15 @@ export PACT_BROKER_TOKEN=<API_TOKEN here>
 
 ### Running test
 
-1. Install dependencies
 
-    `npm i`
 
-2. Run test
+1. Run test
 
     `npm run test`
 
-3. A contract is generated in ./pacts folder named: `consumer-provider.json`
+2. A contract is generated in ./pacts folder named: `consumer-provider.json`
 
-4. Publish the contract to your pact broker:
+3. Publish the contract to your pact broker:
 `npm run publish:pact`
 
 
