@@ -16,7 +16,7 @@ An example test framework using Pact-js to generate contract from consumer
 
 ## Running Pact test
 
-Pact will create mock service at a local host `http://localhost` on port `:4321`. Please make sure this port is available.
+Pact will create a mock service at a local host `http://localhost` on port `:4321`. Please make sure it is available.
 
 I am using [Pactflow](https://pactflow.io/) as my broker. To use Pactflow , register for their free developer plan and export your Pactflow Broker URL and API token:
 
@@ -33,9 +33,11 @@ export PACT_BROKER_TOKEN=<API_TOKEN here>
 
     `npm run test`
 
-2. A contract is generated in ./pacts folder named: `consumer-provider.json`
+2. A contract is generated in ./pacts and named: `consumer-provider.json`
 
 3. Publish the contract to your pact broker:
 `npm run publish:pact`
+   
+4. Open your Pactflow to view the contract
 
 

@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "jest src/api.pact.spec.js --testTimeout=10000",
-    "publish:pact": "pact-broker publish ./pacts --consumer-app-version=2.0.0 --tag=master --broker-base-url $PACT_BROKER_URL --broker-token $PACT_BROKER_TOKEN"
+    "publish:pact": "pact-broker publish ./pacts --consumer-app-version=1.0.0 --broker-base-url $PACT_BROKER_URL --broker-token $PACT_BROKER_TOKEN"
   },
   "eslintConfig": {
     "extends": "react-app"
