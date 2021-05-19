@@ -23,7 +23,7 @@ describe('Demo test', () => {
             // (2) Start the mock server
             return pact.setup().then(async () => {
                 // this is the response you expect from your Provider
-                const expectedProduct = {id: '10', type: 'CREDIT_CARD', name: '28 Degrees'}
+                const expectedProduct = {id: '10', type: 'CREDIT_CARD', name: '28 Degrees', price: 1000, quantity: 4}
 
                 // (3) add interactions to the Mock Server, as many as required
                 await pact.addInteraction({

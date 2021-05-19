@@ -11,9 +11,11 @@ import PropTypes from 'prop-types';
 
 const productPropTypes = {
   product: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        price: PropTypes.string.isRequired,
+        quantity: PropTypes.string.isRequired,
   }).isRequired
 };
 
@@ -22,6 +24,9 @@ function ProductTableRow(props) {
     <tr>
       <td>{props.product.name}</td>
       <td>{props.product.type}</td>
+      <td>{props.product.price}</td>
+      <td>{props.product.quantity}</td>
+      <td>{props.product.quantity * props.product.price}</td>
     </tr>
   );
 }
@@ -37,6 +42,9 @@ function ProductTable(props) {
       <tr>
         <th>Name</th>
         <th>Type</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
         <th/>
       </tr>
       </thead>
