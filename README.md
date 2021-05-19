@@ -18,10 +18,15 @@ An example test framework using Pact-js to generate contract from consumer
 
 Pact will create a mock service at a local host `http://localhost` on port `:4321`. Please make sure it is available.
 
-I am using [Pactflow](https://pactflow.io/) as my broker. To use Pactflow , register for their free developer plan and export your Pactflow Broker URL and API token:
+I am using [Pactflow](https://pactflow.io/) as my broker. To use Pactflow , register for their free developer plan:
 
+After creating the account, please access the link to get your token (`Read/write token (CI)`) at: 
+
+`https://<YOUR_PACTFLOW_NAME>.pactflow.io/settings/api-tokens`
+
+Then export your Pactflow Broker URL and API token:
 ```
-export PACT_BROKER_URL=<PACT_BROKER_URL here>
+export PACT_BROKER_URL=https://<YOUR_PACTFLOW_NAME>.pactflow.io/
 export PACT_BROKER_TOKEN=<API_TOKEN here>
 ```
 
