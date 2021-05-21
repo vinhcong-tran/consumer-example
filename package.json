@@ -16,8 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "test": "jest src/api.pact.spec.js --testTimeout=10000",
-    "publish:pact": "pact-broker publish ./pacts --consumer-app-version=1.0.0 --broker-base-url $PACT_BROKER_URL --broker-token $PACT_BROKER_TOKEN"
+    "test": "jest --runInBand --testTimeout=10000 pact.spec.js",
+    "publish:pact": "pact-broker publish ./pacts --consumer-app-version=2.1.0 --broker-base-url=https://evizi.pactflow.io --broker-token=WjO7Uqy9mjAJ0R7yQzARVw"
   },
   "eslintConfig": {
     "extends": "react-app"
