@@ -8,10 +8,13 @@ An example test framework using Pact-js to generate contract from consumer
 
 ## Running React
 
-1. Start React
+1. Start `NodeJS` server
+
+2. Start React 
 
    `npm start`
-2. Access: http://localhost:3000/
+
+3. Access: http://localhost:3000/
 
 
 ## Running Pact test

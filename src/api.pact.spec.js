@@ -23,7 +23,9 @@ describe('Demo test', () => {
             // (2) Start the mock server
             return pact.setup().then(async () => {
                 // this is the response you expect from your Provider
-                const expectedProduct = {id: '10', type: 'CREDIT_CARD', name: '28 Degrees'}
+                const expectedProduct = [{id: '09', type: 'CREDIT_CARD', name: 'Gem Visa', version: 'v1'},
+                                         {id: '10', type: 'CREDIT_CARD', name: '28 Degrees', version: 'v1'},
+                                        {id: '11', type: 'PERSONAL_LOAN', name: 'MyFlexiPay', version: 'v2'}]
 
                 // (3) add interactions to the Mock Server, as many as required
                 await pact.addInteraction({
@@ -42,7 +44,7 @@ describe('Demo test', () => {
                         headers: {
                             'Content-Type': regex({generate: 'application/json; charset=utf-8', matcher: 'application/json;?.*'}),
                         },
-                        body: eachLike(expectedProduct),
+                        body: (expectedProduct),
                     },
                 });
             })
