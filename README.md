@@ -27,10 +27,10 @@ After creating the account, please access the link to get your token (`Read/writ
 
 `https://<YOUR_PACTFLOW_NAME>.pactflow.io/settings/api-tokens`
 
-Then export your Pactflow Broker URL and API token:
+Then update your Pactflow Broker URL and API token in `/.env` file at root directory:
 ```
-export PACT_BROKER_URL=https://<YOUR_PACTFLOW_NAME>.pactflow.io/
-export PACT_BROKER_TOKEN=<API_TOKEN here>
+PACT_BROKER_URL=https://<YOUR_PACTFLOW_NAME>.pactflow.io/
+PACT_BROKER_TOKEN=<API_TOKEN here>
 ```
 
 ### Running test
