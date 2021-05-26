@@ -1,27 +1,10 @@
 import {API} from '../src/api'
-// import {Pact} from '@pact-foundation/pact'
 import {like, regex} from '@pact-foundation/pact/src/dsl/matchers'
-// import path from 'path'
 import {url, port, pact} from '../test/setupPact'
 
 require('dotenv').config()
 
-// const url = 'http://localhost:';
-// const port = 4321;
-
 describe('Demo test', () => {
-
-    // (1) Create the Pact object to represent your provider
-    // const pact = new Pact({
-    //     consumer: process.env.CONSUMER_NAME,
-    //     provider: process.env.PROVIDER_NAME,
-    //     port: port,
-    //     log: path.resolve(process.cwd(), 'logs', 'pact.log'),
-    //     dir: path.resolve(process.cwd(), 'pacts'),
-    //     logLevel: 'INFO',
-    //     pactfileWriteMode: "update"
-    // });
-
     describe('Getting all products', () => {
 
         // (2) Start the mock server
