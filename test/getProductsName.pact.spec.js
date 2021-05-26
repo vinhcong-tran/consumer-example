@@ -1,24 +1,25 @@
 import {API} from '../src/api'
 import {Pact} from '@pact-foundation/pact'
-import {like, eachLike, regex} from "@pact-foundation/pact/src/dsl/matchers";
+import {like, regex} from "@pact-foundation/pact/src/dsl/matchers";
 import path from 'path'
+import {url, port, pact} from '../test/setupPact'
 require('dotenv').config()
 
-const url = 'http://localhost:';
-const port = 4321;
+// const url = 'http://localhost:';
+// const port = 4321;
 
 describe('Demo test', () => {
 
     // (1) Create the Pact object to represent your provider
-    const pact = new Pact({
-        consumer: process.env.CONSUMER_NAME,
-        provider: process.env.PROVIDER_NAME,
-        port: port,
-        log: path.resolve(process.cwd(), 'logs', 'pact.log'),
-        dir: path.resolve(process.cwd(), 'pacts'),
-        logLevel: 'INFO',
-        pactfileWriteMode: "update"
-    });
+    // const pact = new Pact({
+    //     consumer: process.env.CONSUMER_NAME,
+    //     provider: process.env.PROVIDER_NAME,
+    //     port: port,
+    //     log: path.resolve(process.cwd(), 'logs', 'pact.log'),
+    //     dir: path.resolve(process.cwd(), 'pacts'),
+    //     logLevel: 'INFO',
+    //     pactfileWriteMode: "update"
+    // });
 
     describe('Getting all products name', () => {
 
@@ -31,6 +32,7 @@ describe('Demo test', () => {
             // this is the response you expect from your Provider
             const expectedProductsName = [{name: 'Gem Visa'}, {name: '28 Degrees'}, {name: 'MyFlexiPay'}]
 
+            reporter.startStep("Step 1: Add interaction");
             await pact.addInteraction({
                 // The 'state' field specifies a "Provider State"
                 state: 'products name exist',
@@ -50,16 +52,25 @@ describe('Demo test', () => {
                     body: (expectedProductsName),
                 },
             });
+            reporter.endStep();
+
+            reporter.startStep("Step 2: Create a new API");
             const api = new API(`${url + port}`);
+            reporter.endStep();
 
             // make request to Pact mock server
+            reporter.startStep("Step 3: Make a request to get all products name");
             const productsName = await api.getProductsName();
+            reporter.endStep();
 
             // assert that we got the expected response
+            reporter.startStep("Step 4: Verify the response is correct");
             expect(productsName).toEqual(expectedProductsName);
+            reporter.endStep();
         });
 
         test('No product name exists', async () => {
+            reporter.startStep("Step 1: Add interaction");
             await pact.addInteraction({
                 state: 'no product name exists',
                 uponReceiving: 'a request to get products name',
@@ -78,12 +89,23 @@ describe('Demo test', () => {
                     body: [],
                 },
             });
+            reporter.endStep();
+
+            reporter.startStep("Step 2: Create a new API");
             const api = new API(`${url + port}`);
+            reporter.endStep();
+
+            reporter.startStep("Step 3: Make a request to get all products name");
             const productsName = await api.getProductsName();
+            reporter.endStep();
+
+            reporter.startStep("Step 4: Verify the response is correct");
             expect(productsName).toEqual([]);
+            reporter.endStep();
         });
 
         test("No auth token", async () => {
+            reporter.startStep("Step 1: Add interaction");
             await pact.addInteraction({
                 state: 'no auth token when getting product name',
                 uponReceiving: 'a request to get product name with no auth token',
@@ -95,9 +117,15 @@ describe('Demo test', () => {
                     status: 401
                 },
             });
+            reporter.endStep();
 
-            const api = new API(pact.mockService.baseUrl);
+            reporter.startStep("Step 2: Create a new API");
+            const api = new API(`${url + port}`);
+            reporter.endStep();
+
+            reporter.startStep("Step 3: Make a request and verify the response is correct");
             await expect(api.getProductsName()).rejects.toThrow("Request failed with status code 401");
+            reporter.endStep();
         });
 
         // (5) validate the interactions you've registered and expected occurred
