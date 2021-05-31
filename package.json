@@ -46,7 +46,10 @@
   "jest": {
     "globalSetup": "./test/setup/setup.js",
     "globalTeardown": "./test/setup/teardown.js",
-    "setupFilesAfterEnv": ["jest-allure/dist/setup", "./test/setup/testSetup.js"],
+    "setupFilesAfterEnv": [
+      "jest-allure/dist/setup",
+      "./test/setup/testSetup.js"
+    ],
     "reporters": [
       "default",
       "jest-allure"

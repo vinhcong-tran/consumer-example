@@ -1,9 +1,7 @@
-import pact from '@pact-foundation/pact-node';
-import path from 'path';
-import exec from 'child_process';
-import dotenv from 'dotenv'
-
-dotenv.config()
+const pact = require('@pact-foundation/pact-node');
+const path = require('path');
+const exec =  require('child_process');
+require('dotenv').config();
 
 const gitHash = exec.execSync('git rev-parse --short HEAD').toString().trim();
 const gitBranch = exec.execSync('git branch --show-current').toString().trim();
