@@ -1,4 +1,4 @@
-pipeline{  
+pipeline{
   environment {
     registry = "lamnguyen912/evizi-demo-image"
     registryCredential = 'lamnguyen912'
@@ -16,13 +16,13 @@ pipeline{
         stage('Building image') {
             steps{
                 script {
-                  dockerImage = docker.build registry + ":latest"
+                  bat 'docker build -t lamnguyen912/evizi-demo-image .'
                  }
              }
           }
        stage('Deploying into k8s'){
         steps{
-            bat 'kubectl apply -f deployment.yml' 
+            bat 'kubectl apply -f deployment.yml'
         }
         }
     }
