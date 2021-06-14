@@ -20,19 +20,10 @@ pipeline{
                  }
              }
           }
-          stage('Push Image') {
-              steps{
-                  script {
-                       docker.withRegistry( '', registryCredential){
-                       dockerImage.push()
-                      }
-                   }
-                } 
-           }
-           stage('Deploying into k8s'){
-            steps{
-                bat 'kubectl apply -f deployment.yml' 
-            }
+       stage('Deploying into k8s'){
+        steps{
+            bat 'kubectl apply -f deployment.yml' 
+        }
         }
     }
 }
