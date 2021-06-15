@@ -16,7 +16,7 @@ pipeline{
         stage('Building image') {
             steps{
                 script {
-                  bat 'docker build -t lamnguyen912/evizi-demo-image .'
+                  bat 'docker build .'
                  }
              }
           }
